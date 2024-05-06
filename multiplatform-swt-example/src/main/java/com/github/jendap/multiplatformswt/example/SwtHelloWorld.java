@@ -35,6 +35,14 @@ public class SwtHelloWorld {
                 display.dispose();
             }
         });
+        
+        final Button baTest = new Button(shell, SWT.PUSH);
+        baTest.setText("BA Test");
+        baTest.addSelectionListener(new SelectionAdapter() {
+            public void widgetSelected(SelectionEvent e) {
+            	swtHtmlHelloWorld(display);
+            }
+        });
         shell.setDefaultButton(ok);
         shell.setLayout(new RowLayout());
         shell.pack();
@@ -46,14 +54,13 @@ public class SwtHelloWorld {
         display.dispose();
     }
 
-    public void swtHtmlHelloWorld() {
-        final Display display = new Display();
+    public void swtHtmlHelloWorld(Display display) {
         final Shell shell = new Shell(display);
         shell.setSize(800, 450);
         try {
             final Browser browser = new Browser(shell, SWT.NONE);
             // browser.setText("<html><body>Hello world!</body></html>");
-            browser.setUrl("http://lmgtfy.com/?q=meow");
+            browser.setUrl("https://de.hama.com");
             browser.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
         } catch (final SWTError e) {
             final MessageBox messageBox = new MessageBox(shell, SWT.ICON_ERROR | SWT.OK);
